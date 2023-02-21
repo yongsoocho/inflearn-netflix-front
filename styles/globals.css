@@ -18,3 +18,17 @@ body {
   background-color: black;
   color: white;
 }
+
+/*
+@layer base {
+  body {
+    @apply bg-black text-white;
+  }
+}
+*/
+
+@layer components {
+  .headerLink {
+    @apply font-semibold hover:cursor-pointer hover:opacity-50 transition duration-300 text-3xl mx-32 flex items-center;
+  }
+}
