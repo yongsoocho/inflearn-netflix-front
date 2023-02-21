@@ -1,7 +1,10 @@
-export default function CustomButton({ name, func }) {
+export default function onClickFunc({ name, onClickFunc }) {
   return (
-    <div className="bg-netflix-red text-white text-xl py-3 flex justify-center items-center rounded-lg hover:cursor-pointer hover:opacity-70 transition" onClick={func}>
+    <button
+      className="bg-netflix-red text-white text-xl p-3 flex justify-center items-center rounded-lg hover:cursor-pointer hover:opacity-70 transition w-full"
+      onClick={onClickFunc}
+    >
       <span>{name}</span>
-    </div>
+    </button>
   );
 }

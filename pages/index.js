@@ -1,5 +1,11 @@
 import styles from "@/styles/Home.module.css";
 
 export default function Home() {
-  return <></>;
+  return (
+    <div>
+      <div>
+        <img />
+      </div>
+    </div>
+  );
 }

@@ -1,11 +1,12 @@
 import { useCallback, useRef, useState } from "react";
 
-export function CustomInput({
+export default function CustomInput({
   placeholder,
   value,
   setValue,
   checkFunc,
   errorMessage,
+  type = "text",
 }) {
   const [showErr, setShowErr] = useState(false);
 
@@ -27,9 +28,10 @@ export function CustomInput({
     <>
       <input
         placeholder={placeholder}
-        className="bg-[#333333] rounded-md px-2 py-4 text-xl text-white relative focus:outline-none"
+        className="bg-[#333333] rounded-md px-2 py-4 text-xl text-white relative focus:outline-none w-full"
         value={value}
         onChange={onChangeEvent}
+        type={type}
       />
       <span className="text-[#E87C03]">{showErr ? errorMessage : ""}</span>
     </>
