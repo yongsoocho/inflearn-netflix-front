@@ -6,6 +6,7 @@ export default function CustomInput({
   setValue,
   checkFunc,
   errorMessage,
+  setIsFocus,
   type = "text",
 }) {
   const [showErr, setShowErr] = useState(false);
@@ -32,6 +33,8 @@ export default function CustomInput({
         value={value}
         onChange={onChangeEvent}
         type={type}
+        onFocus={() => setIsFocus(() => true)}
+        onBlur={() => setIsFocus(false)}
       />
       <span className="text-[#E87C03]">{showErr ? errorMessage : ""}</span>
     </>

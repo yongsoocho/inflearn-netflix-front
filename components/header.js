@@ -1,4 +1,5 @@
 import MovieIcon from "@/mixins/MovieIcon";
+import MyListIcon from "@/mixins/MyListIcon";
 import SearchIcon from "@/mixins/SearchIcon";
 import SeriesIcon from "@/mixins/SeriesIcon";
 import UserIcon from "@/mixins/UserIcon";
@@ -21,13 +22,11 @@ export default function Header() {
   } else {
     return (
       <div className="flex justify-between items-center p-4 w-screen absolute top-0 z-[999] bg-black">
-        <div>
-          <Link href="/">
-            <img src="./netflix_title.png" width="200px" height="auto" />
+        <div className="flex items-center">
+          <Link href="/" className="mr-16">
+            <img src="./netflix_title.png" width="150px" height="auto" />
           </Link>
-        </div>
 
-        <div className="flex">
           <Link href="/series" className="headerLink">
             <SeriesIcon />
             <span>시리즈</span>
@@ -42,11 +41,16 @@ export default function Header() {
             <SearchIcon />
             <span>검색</span>
           </Link>
+
+          <Link href="/my-video" className="headerLink">
+            <MyListIcon />
+            <span>내가 찜한 목록</span>
+          </Link>
         </div>
 
         <div />
 
-        <div className="w-20 h-20 bg-netflix-red p-2 rounded-full hover:cursor-pointer mr-8">
+        <div className="flex justify-center items-center w-12 h-12 bg-netflix-red p-2 rounded-lg hover:cursor-pointer mr-8">
           <UserIcon />
         </div>
       </div>

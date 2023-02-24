@@ -31,6 +31,6 @@ body {
 
 @layer components {
   .headerLink {
-    @apply font-semibold hover:cursor-pointer hover:opacity-50 transition duration-300 text-3xl mx-32 flex items-center;
+    @apply font-semibold hover:cursor-pointer hover:opacity-50 transition duration-300 text-xl mx-8 flex items-center;
   }
 }
