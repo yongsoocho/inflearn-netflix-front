@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       colors: {
         "netflix-red": "var(--netflix-red)",
+        "netflix-gray": "var(--netflix-gray)",
       },
     },
   },

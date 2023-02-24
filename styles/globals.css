@@ -5,6 +5,7 @@
 
 :root {
   --netflix-red: #e50914;
+  --netflix-gray: #2b2b2b;
 }
 
 * {
@@ -17,6 +18,7 @@ html,
 body {
   background-color: black;
   color: white;
+  overflow-x: hidden;
 }
 
 /*

@@ -36,7 +36,7 @@ export default function Header() {
 
         <div />
 
-        <div className="w-20 h-20 bg-netflix-red p-2 rounded-full hover:cursor-pointer">
+        <div className="w-20 h-20 bg-netflix-red p-2 rounded-full hover:cursor-pointer mr-8">
           <UserIcon />
         </div>
       </div>

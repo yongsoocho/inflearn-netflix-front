@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/header";
 
 export function Layout({ children }) {
@@ -8,6 +9,10 @@ export function Layout({ children }) {
       </header>
 
       <main>{children}</main>
+
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
