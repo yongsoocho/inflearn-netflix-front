@@ -18,7 +18,7 @@ export default function Curation({ title }) {
   const onMouseMove = useCallback(
     (e) => {
       if (draggable.current) {
-        const moveX = Math.round((startX.current - e.clientX) * 0.01);
+        const moveX = Math.round((startX.current - e.clientX) * 0.02);
         setNowX(() => nowX + moveX);
       }
     },
