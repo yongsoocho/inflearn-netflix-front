@@ -1,27 +1,33 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import MovieTemplate from "./MovieTemplate";
 
 export default function Curation({ title }) {
   const arr = new Array(20).fill({});
-  const dragable = useRef(false);
-  const swiper = useRef(null);
+  const draggable = useRef(null);
+  const startX = useRef(0);
+  const [nowX, setNowX] = useState(0);
 
   // 에러
   // swiper.current.clientWidth = arr.length * 336;
 
-  const onDragStartEvent = useCallback((e) => {
-    dragable.current = true;
-    console.log("start");
-  }, []);
-  const onDragEvent = useCallback((e) => {
-    if (dragable.current) {
-      // console.dir(swiper.current);
-    }
-  }, []);
-  const onDragEndEvent = useCallback((e) => {
-    dragable.current = false;
-    console.log("end");
-  }, []);
+  const onMouseDownEvent = (e) => {
+    draggable.current = true;
+    startX.current = e.clientX;
+  };
+
+  const onMouseMove = useCallback(
+    (e) => {
+      if (draggable.current) {
+        const moveX = Math.round((startX.current - e.clientX) * 0.01);
+        setNowX(() => nowX + moveX);
+      }
+    },
+    [nowX]
+  );
+
+  const onMouseLeaveOrLeaveEvent = () => {
+    draggable.current = false;
+  };
 
   return (
     <div className="p-8">
@@ -29,12 +35,15 @@ export default function Curation({ title }) {
 
       <div className="overflow-x-hidden">
         <div
-          className="relative flex hover:cursor-pointer"
-          onDragStart={onDragStartEvent}
-          onDrag={onDragEvent}
-          onDragEnd={onDragEndEvent}
-          style={{ width: arr.length * 336 }}
-          ref={swiper}
+          className="relative flex hover:cursor-grab"
+          onMouseDown={onMouseDownEvent}
+          onMouseMove={onMouseMove}
+          onMouseUp={onMouseLeaveOrLeaveEvent}
+          onMouseLeave={onMouseLeaveOrLeaveEvent}
+          // onDragStart
+          // onDrag
+          // onDragEnd
+          style={{ width: arr.length * 336, right: nowX }}
         >
           {arr.map((item, index) => (
             <MovieTemplate key={index} item={index} />
