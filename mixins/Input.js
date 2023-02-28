@@ -8,6 +8,7 @@ export default function CustomInput({
   errorMessage,
   setIsFocus,
   type = "text",
+  label = "입력해주세요",
 }) {
   const [showErr, setShowErr] = useState(false);
 
@@ -26,17 +27,17 @@ export default function CustomInput({
   }, []);
 
   return (
-    <>
+    <div className="relative">
       <input
         placeholder={placeholder}
-        className="bg-[#333333] rounded-md px-2 py-4 text-xl text-white relative focus:outline-none w-full"
+        className="bg-[#333333] rounded-md px-2 py-4 text-xl text-white relative focus:outline-none w-full focus:[&>label]:top-0 focus:[&>label]:text-md"
         value={value}
         onChange={onChangeEvent}
         type={type}
-        onFocus={() => setIsFocus(() => true)}
-        onBlur={() => setIsFocus(false)}
       />
-      <span className="text-[#E87C03]">{showErr ? errorMessage : ""}</span>
-    </>
+      <span className="text-[#E87C03] absolute -bottom-8 left-2">
+        {showErr ? errorMessage : ""}
+      </span>
+    </div>
   );
 }
