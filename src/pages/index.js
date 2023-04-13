@@ -7,6 +7,7 @@ import { ManagePage } from "./manage.page";
 import { MoviePage } from "./movie.page";
 import { MyListPage } from "./myList.page";
 import { SearchPage } from "./search.page";
+import { RedirectPage } from "./redirect.page";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/search",
         element: <SearchPage />,
+      },
+      {
+        path: "/redirect",
+        element: <RedirectPage />,
       },
     ],
   },
